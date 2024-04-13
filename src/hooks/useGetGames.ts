@@ -1,16 +1,17 @@
 import { useState, useEffect } from "react";
 import ApiClient from "../services/ApiClient";
 
-const useGetGames = () => {
-  interface Game {
-    id: number;
-    name: string;
-  }
+export interface Game {
+  id: number;
+  name: string;
+  background_image: string;
+}
 
-  interface FetchGames {
-    count: number;
-    results: Game[];
-  }
+interface FetchGames {
+  count: number;
+  results: Game[];
+}
+const useGetGames = () => {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState("");
 
