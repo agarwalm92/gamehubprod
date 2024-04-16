@@ -20,9 +20,10 @@ const GameGrid = ({ gameQuery }: Props) => {
         padding={10}
       >
         {loading && skeletons.map((i) => <GameGridSkeleton key={i} />)}
-        {data.map((i) => (
-          <GameCard key={i.id} game={i} />
-        ))}
+
+        {data.length != 0
+          ? data.map((i) => <GameCard key={i.id} game={i} />)
+          : "No games found"}
       </SimpleGrid>
     </>
   );
